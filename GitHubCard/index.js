@@ -65,6 +65,18 @@ const createCard = user => {
   const infoFollowers = document.createElement('p')
   const infoFollowing = document.createElement('p')
   const infoBio = document.createElement('p')
+
+  //Element structure
+  cardContent.appendChild(cardImage)
+  cardContent.appendChild(cardInfo)
+  cardInfo.appendChild(infoName)
+  cardInfo.appendChild(infoUsername)
+  cardInfo.appendChild(infoLocation)
+  cardInfo.appendChild(infoProfile)
+  infoProfile.appendChild(infoLink)
+  cardInfo.appendChild(infoFollowers)
+  cardInfo.appendChild(infoFollowing)
+  cardInfo.appendChild(infoBio)
 }
 
 /* List of LS Instructors Github username's: 
