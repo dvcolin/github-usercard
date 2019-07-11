@@ -109,9 +109,6 @@ function createCard(user) {
   return cardContent;
 }
 
-
-
-
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
@@ -119,6 +116,3 @@ function createCard(user) {
   luishrd
   bigknell
 */
-
-
-
