@@ -6,6 +6,8 @@
 axios.get('https://api.github.com/users/dvcolin')
 .then(data => {
   console.log('github api', data);
+  const apiData = data.data;
+  cards.appendChild(createCard(apiData))
 })
 
 
@@ -19,6 +21,8 @@ axios.get('https://api.github.com/users/dvcolin')
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
 */
+const cards = document.querySelector('.cards');
+
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
@@ -30,7 +34,16 @@ axios.get('https://api.github.com/users/dvcolin')
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const friendsArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+
+friendsArray.forEach(friend => {
+  axios.get(`https://api.github.com/users/${friend}`)
+  .then(data => {
+    console.log('github api', data);
+    const apiData = data.data;
+    cards.appendChild(createCard(apiData))
+  })
+})
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -52,7 +65,7 @@ const followersArray = [];
 
 */
 
-const createCard = user => {
+function createCard(user) {
   //Create elements
   const cardContent = document.createElement('div')
   const cardImage = document.createElement('img')
@@ -83,7 +96,21 @@ const createCard = user => {
   cardInfo.classList.add('card-info')
   infoName.classList.add('name')
   infoUsername.classList.add('username')
+
+  //Set content
+  cardImage.src = `${user.avatar_url}`
+  infoName.textContent = `${user.name}`
+  infoUsername.textContent = `${user.login}`
+  infoLocation.textContent = `${user.location}`
+  infoLink.textContent = `${user.html_url}`
+  infoFollowers.textContent = `${user.followers}`
+  infoFollowing.textContent = `${user.following}`
+
+  return cardContent;
 }
+
+
+
 
 /* List of LS Instructors Github username's: 
   tetondan
