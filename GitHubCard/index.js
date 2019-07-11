@@ -9,6 +9,9 @@ axios.get('https://api.github.com/users/dvcolin')
   const apiData = data.data;
   cards.appendChild(createCard(apiData))
 })
+.catch(error => {
+  console.log('ERROR. CANNOT ACCESS API', error)
+})
 
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -44,7 +47,9 @@ friendsArray.forEach(friend => {
     cards.appendChild(createCard(apiData))
   })
 })
-
+.catch(error => {
+  console.log('ERROR. CANNOT ACCESS API', error)
+})
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
