@@ -77,6 +77,12 @@ const createCard = user => {
   cardInfo.appendChild(infoFollowers)
   cardInfo.appendChild(infoFollowing)
   cardInfo.appendChild(infoBio)
+
+  //Add classes
+  cardContent.classList.add('card')
+  cardInfo.classList.add('card-info')
+  infoName.classList.add('name')
+  infoUsername.classList.add('username')
 }
 
 /* List of LS Instructors Github username's: 
